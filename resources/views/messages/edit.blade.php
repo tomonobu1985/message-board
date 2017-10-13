@@ -10,8 +10,15 @@
             @endforeach
         </ul>
     @endif
-    <p>{{ $message->content }}</p>
+    {!! Form::model($message, ['route' => ['messages.update', $message->id], 'method' => 'put']) !!}
 
-    {!! link_to_route('messages.edit', 'このメッセージ編集', ['id' => $message->id]) !!}
+        {!! Form::label('title', 'タイトル:') !!}
+        {!! Form::text('title') !!}
 
+        {!! Form::label('content', 'メッセージ:') !!}
+        {!! Form::text('content') !!}
+
+        {!! Form::submit('更新') !!}
+
+    {!! Form::close() !!}
 @endsection

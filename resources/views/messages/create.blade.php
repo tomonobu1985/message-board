@@ -10,8 +10,10 @@
             @endforeach
         </ul>
     @endif
-    
     {!! Form::model($message, ['route' => 'messages.store']) !!}
+
+        {!! Form::label('title', 'タイトル:') !!}
+        {!! Form::text('title') !!}    
 
         {!! Form::label('content', 'メッセージ:') !!}
         {!! Form::text('content') !!}
